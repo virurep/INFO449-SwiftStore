@@ -1,4 +1,4 @@
-//
+ //
 //  StoreTests.swift
 //  StoreTests
 //
@@ -65,5 +65,13 @@ Granols Bars (Box, 8ct): $4.99
 TOTAL: $7.97
 """
         XCTAssertEqual(expectedReceipt, receipt.output())
+    }
+    
+    func testItem() {
+        let oneItem = Item(name: "Controller", priceEach: 5000)
+        let testPrice = oneItem.priceEach
+        XCTAssertEqual(5000, testPrice)
+        register.scan(oneItem)
+        XCTAssertEqual(5000, register.subtotal())
     }
 }
